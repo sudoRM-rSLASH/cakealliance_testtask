@@ -27,7 +27,6 @@ def get_tx(key, address):
 
 def sort_tx(tx_list):
     inc_tx = [tx for tx in tx_list["result"] if tx["to"] == address.lower()]
-    print(len(inc_tx))
     return inc_tx
 
 
@@ -94,7 +93,6 @@ def type_data(message):
     if message.text == "Get incoming transactions":
         try:
             for tx in get_inc_tx():
-                print(tx)
                 bot.send_message(message.chat.id,
                                  text=
                                  "time : " f"{datetime.utcfromtimestamp(float(tx['timeStamp'])).strftime('%Y-%m-%d %H:%M:%S')} \n" \
